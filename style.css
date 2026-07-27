@@ -631,6 +631,8 @@ header.scrolled {
 }
 
 
+
+
 /* ========================================== -->
    6. RESPONSIVE PARTNERS / CLIENTS SHEET
    ========================================== --> */
@@ -2126,4 +2128,67 @@ body.light-theme .chat-msg.user .message-bubble {
         word-break: break-word;
         overflow-wrap: break-word;
     }
+<<<<<<< HEAD
+=======
+}
+
+/* Ensure product grid items align to the top on PC, preventing height-stretching */
+.products-grid, 
+.product-grid-container {
+    display: grid !important;
+    align-items: start !important; /* 🚀 CRITICAL: Stops PC grid items from stretching together */
+}
+
+/* Ensure individual cards maintain independent stacking contexts */
+.product-card {
+    height: auto !important;
+    align-self: start !important;
+}
+
+/* Safe dropdown visibility mapping for both classes */
+.product-card .features-dropdown,
+.product-card .product-features {
+    display: none !important;
+}
+
+.product-card.show-features .features-dropdown,
+.product-card.show-features .product-features,
+.product-card .features-dropdown.open,
+.product-card .product-features.open {
+    display: block !important;
+}
+
+/* ==========================================================================
+   EQUAL-HEIGHT SYMMETRIC PRODUCT CARDS FIX
+   ========================================================================== */
+
+/* 1. Change grid alignment from stretch to start */
+.products-grid,
+.product-grid-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    align-items: stretch !important;          /* 🚀 CRITICAL: Stops sibling cards from stretching together */
+}
+
+/* 2. Base state for product cards */
+.product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;                /* Allows card to grow and shrink naturally */
+    box-sizing: border-box !important;
+}
+
+/* 3. Text body absorbs spacing */
+.product-card .card-body,
+.product-card .card-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+}
+
+/* 4. Lock buttons to the bottom of each card */
+.product-card .card-actions {
+    margin-top: auto !important;
+    padding-top: 16px !important;
+>>>>>>> 06c1ebc (moved development products to main branch)
 }
